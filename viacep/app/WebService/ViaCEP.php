@@ -5,31 +5,31 @@ namespace App\WebService;
 class ViaCEP{
 
     /**
-     * Metodo responsavel por consultar CEP
+     * Um dos metodos responsaveis por consultar 
      * @param string $cep
      * @return array
      */
     public static function consultarCEP($cep){
-       //INICIAR O CURL
+       //Definindo que deve iniciar o curl
        $curl = curl_init();
 
-       //CONFIGURACOES DO CURL
+       //Configuracoes do curl
        curl_setopt_array($curl,[
            CURLOPT_URL => 'https://viacep.com.br/ws/'.$cep.'/json/',
            CURLOPT_RETURNTRANSFER => true,
            CURLOPT_CUSTOMREQUEST => 'GET'
        ]);
 
-       //RESPONSE
+    
        $response = curl_exec($curl);
 
        //FECHA A CONEXAO ABERTA
        curl_close($curl);
 
-       //CONVERTE JSON PARA ARRAY
+       //Converte o grande lindo json 
        $array = json_decode($response, true);
 
-       //RETORNAR O CONTEUDO EM ARRAY
+       //Retorna o conteudo
        return isset($array['cep']) ? $array : null;
 
     }

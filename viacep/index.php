@@ -2,10 +2,10 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-//DEPENDENCIAS 
+//Dependencias da api 
 use \App\WebService\ViaCEP;
 
-//VERIFICA A EXISTENCIA DO CEP NO COMANDO
+//Pega o que foi digitado no comando do terminal
 if(!isset($argv[1])){
     die("CEP não definido\n");
 }
