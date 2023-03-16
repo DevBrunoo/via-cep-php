@@ -1,3 +1,4 @@
+
 <?php
 
 $cep = readline("Digite o CEP que deseja consultar: ");
